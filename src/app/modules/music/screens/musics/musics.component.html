@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-buttons (click)="isReorder? completeReorder() : reorderHandler()" slot="start">
+      <ion-icon [name]="isReorder? 'checkmark-outline':'filter-outline'"></ion-icon>
+    </ion-buttons>
+    <ion-title>
+      Müziklerim
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-bottom ion-margin-bottom ion-activatable ripple-parent" [fullscreen]="true">
+  <ion-fab style="text-align: center; color: white; display: block" *ngIf="items.length === 0" vertical="center"
+           horizontal="center" slot="fixed">
+    <ion-fab-button class="ion-margin-bottom" routerLink="/search" color="danger">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list class="ion-padding-bottom ion-margin-bottom" *ngIf="items !== []" style="background-color: transparent">
+    <ion-reorder-group #reorder (ionItemReorder)="$event.detail.complete(this.items)" disabled="true">
+      <ion-item lines="none"
+                *ngFor="let item of items; index as i">
+        <ion-card *ngIf="item.id" color="dark">
+          <ion-item lines="none" class="music-item">
+            <ion-thumbnail slot="start">
+              <ion-img [src]="item.imageUrl"></ion-img>
+            </ion-thumbnail>
+            <ion-label>{{item.title}}</ion-label>
+            <ion-reorder slot="end" *ngIf="!reorder.disabled" style="color: white"></ion-reorder>
+            <ion-icon (click)="deleteMusic(item.id)" style="font-size: x-large !important;" slot="end"
+                      *ngIf="!reorder.disabled" name="close-circle" color="light"></ion-icon>
+            <ion-icon class="ion-margin-start" *ngIf="reorder.disabled" (click)="play(i)" color="danger"
+                      name="play-circle-outline"></ion-icon>
+          </ion-item>
+        </ion-card>
+      </ion-item>
+    </ion-reorder-group>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,82 @@
+:host {
+  display: contents;
+}
+
+ion-toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  .update-icon {
+    position: absolute !important;
+    right: 10px !important;
+    font-size: x-large !important;
+  }
+
+  ion-icon {
+    z-index: 999;
+    position: absolute;
+    color: white;
+    padding: 10px;
+    font-size: xx-large;
+  }
+}
+
+ion-content {
+  --background: #111111;
+
+  .playlist-banner {
+    ion-img {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      height: auto;
+    }
+
+    ion-item {
+      --background: transparentize();
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  ion-list {
+    z-index: 99;
+    background-color: transparent;
+
+    ion-item {
+      --background: transparentize();
+
+      ion-card {
+        width: 100% !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        .music-item {
+          width: 100%;
+          --background: transparentize();
+          margin: 0 !important;
+          padding: 0 !important;
+          text-align: center;
+
+          ion-label {
+            max-width: 90%;
+            color: white;
+            font-size: small;
+            text-align: center;
+          }
+
+          ion-reorder {
+            margin-left: auto !important;
+          }
+
+          ion-icon {
+            font-size: xx-large;
+          }
+        }
+      }
+    }
+  }
+}

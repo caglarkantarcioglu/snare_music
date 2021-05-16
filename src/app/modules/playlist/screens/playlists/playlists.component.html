@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-item lines="none" slot="end">
+      <ion-icon name="add-circle" color="light" (click)="openCreateModal()"></ion-icon>
+    </ion-item>
+    <ion-title>
+      Parça Listeleri
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-fab style="text-align: center; color: white; display: block" *ngIf="items.length === 0" vertical="center"
+           horizontal="center" slot="fixed">
+    <ion-fab-button class="ion-margin-bottom" (click)="openCreateModal()" color="danger">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list class="ion-padding-top ion-padding-bottom" *ngIf="items.length > 0" style="background-color: transparent">
+    <ion-item lines="none" class="ion-margin-bottom"
+              *ngFor="let item of items">
+      <ion-card *ngIf="item" color="dark">
+        <ion-card-content>
+          <ion-img [src]="item.songs[0].imageUrl"></ion-img>
+          <ion-label class="ion-margin-start">{{item.name}}</ion-label>
+        </ion-card-content>
+        <ion-item lines="none" (click)="openPlaylist(item.id)" class="actions">
+          <ion-icon color="light" name="chevron-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-card>
+
+    </ion-item>
+  </ion-list>
+</ion-content>

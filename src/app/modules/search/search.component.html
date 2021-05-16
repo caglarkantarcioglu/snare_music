@@ -1,0 +1,42 @@
+<ion-header collapse="hidden">
+  <ion-toolbar color="danger">
+    <ion-item lines="none" class="search-bar" color="danger">
+      <ion-input #search id="search" [(ngModel)]="searchKey" placeholder="YouTube'da Ara"></ion-input>
+      <ion-icon (click)="listSearchResult()" name="search"></ion-icon>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-fab *ngIf="items.length === 0" vertical="center" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="focusSearch()" color="danger">
+      <ion-icon name="search"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-list *ngIf="items.length !== 0" style="background-color: transparent"
+            class="ion-margin-bottom ion-padding-bottom">
+    <ion-item class="yt-item ion-margin-bottom" *ngFor="let item of items">
+      <ion-card color="dark">
+        <ion-item-group class="ion-padding-top">
+          <ion-item class="image-item">
+            <ion-img [src]="item.snippet.thumbnails.high.url"></ion-img>
+          </ion-item>
+          <ion-card-content>
+            <ion-card-subtitle>{{item.snippet.title}}</ion-card-subtitle>
+          </ion-card-content>
+        </ion-item-group>
+        <ion-item-group class="actions">
+          <ion-item>
+            <ion-icon (click)="play(item)" color="danger" name="play"></ion-icon>
+          </ion-item>
+          <ion-item>
+            <ion-icon (click)="addMusic(item)" color="light" name="add"></ion-icon>
+          </ion-item>
+          <ion-item>
+            <ion-icon color="light" (click)="addPlaylistMusic(item)" name="library"></ion-icon>
+          </ion-item>
+        </ion-item-group>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>

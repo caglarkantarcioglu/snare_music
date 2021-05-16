@@ -1,0 +1,50 @@
+:host {
+  display: contents;
+}
+ion-toolbar{
+  ion-buttons{
+    ion-icon{
+      font-size: xx-large;
+      position: absolute;
+      left: 12px;
+    }
+  }
+}
+
+ion-content {
+  --background: #111111;
+
+  ion-list {
+    ion-item {
+      --background: transparentize();
+      ion-card {
+        width: 100% !important;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: center;
+        .music-item {
+          width: 100%;
+          --background: transparentize();
+          margin: 0 !important;
+          padding: 0 !important;
+          text-align: center;
+          ion-label {
+            max-width: 90%;
+            color: white;
+            font-size: small;
+            text-align: center;
+          }
+          ion-reorder{
+            margin-left: auto !important;
+          }
+          ion-icon{
+            font-size: xx-large;
+          }
+        }
+      }
+    }
+  }
+
+}
+

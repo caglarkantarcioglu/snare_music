@@ -1,0 +1,102 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+ion-title {
+  text-align: center;
+}
+
+.actionSheet {
+  text-align: center;
+  --button-color: white;
+  --color: rgba(255, 50, 50, 0.8);
+  --background: #111111;
+}
+
+.close-player {
+  animation-name: mini-player-close !important;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  position: absolute !important;
+}
+
+.fadeInRight {
+  animation: fadeInRight .5s ease-in-out 0s 1 normal none running;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-name: fadeInRight;
+}
+
+.fadeInDown {
+  animation: fadeInDown .5s ease-in-out 0s 1 normal none running;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-name: fadeInDown;
+}
+
+/* Animations  */
+@keyframes mini-player-close {
+  100% {
+    opacity: 0.5;
+    top: -1000px;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    -webkit-transform: translate3d(0, -100%, 0);
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+

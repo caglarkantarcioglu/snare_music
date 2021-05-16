@@ -1,0 +1,19 @@
+<ion-item-group class="mini-player fadeInDown" *ngIf="trackService.miniPlayer && player.playingTracks[0]">
+  <ion-item (click)="openPlayer()" lines="none" routerLink="player"
+            class="image ion-margin-top ion-padding-top ion-margin-bottom">
+    <ion-img [src]="player.playingTracks[player.index].imageUrl"></ion-img>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-icon (click)="player.previous()" name="play-skip-back-outline"></ion-icon>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-icon (click)="player.isPlay? player.pause() : player.resume()"
+              [name]="player.isPlay? 'pause-outline' : 'play'"></ion-icon>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-icon (click)="player.next()" name="play-skip-forward-outline"></ion-icon>
+  </ion-item>
+  <ion-item class="ion-margin-top ion-margin-bottom ion-padding-bottom" lines="none">
+    <ion-icon (click)="closeMiniPlayer()" name="close"></ion-icon>
+  </ion-item>
+</ion-item-group>

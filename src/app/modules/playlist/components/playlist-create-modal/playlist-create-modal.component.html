@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-label>
+      Yeni Parça Listesi Oluştur
+    </ion-label>
+    <ion-item (click)="closeModal()" lines="none" slot="end">
+      <ion-icon name="close-outline" color="light"></ion-icon>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item-group class="ion-padding-top">
+    <ion-item color="dark" lines="none" class="input-area">
+      <ion-input [(ngModel)]="newPlaylist.name" placeholder="Parça Listesi Adı"></ion-input>
+      <ion-item>
+        <ion-icon color="light" name="create-outline"></ion-icon>
+      </ion-item>
+    </ion-item>
+    <ion-list class="ion-padding-bottom ion-margin-bottom ion-padding-top ion-margin-top" *ngIf="songs"
+              style="background-color: transparent">
+      <ion-item-group *ngFor="let item of songs; index as i">
+        <ion-item lines="none">
+          <ion-card *ngIf="item.id" color="dark">
+            <ion-item lines="none" class="music-item">
+              <ion-thumbnail slot="start">
+                <ion-img [src]="item.imageUrl"></ion-img>
+              </ion-thumbnail>
+              <ion-label>{{item.title}}</ion-label>
+              <ion-icon class="ion-margin-start" (click)="pushSong(item, i)" color="success"
+                        name="add-circle"></ion-icon>
+            </ion-item>
+          </ion-card>
+        </ion-item>
+      </ion-item-group>
+    </ion-list>
+  </ion-item-group>
+  <ion-item color="dark" lines="none" class="action">
+    <ion-button (click)="create()" [disabled]="!newPlaylist.name || !newPlaylist.songs[0]" class="ion-margin"
+                size="medium" shape="round" color="secondary">
+      Oluştur
+    </ion-button>
+  </ion-item>
+</ion-content>

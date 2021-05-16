@@ -1,0 +1,44 @@
+<ion-toolbar color="dark">
+  <ion-item slot="start">
+    <ion-icon color="light" (click)="location.back()" icon="chevron-back-outline"></ion-icon>
+  </ion-item>
+</ion-toolbar>
+<ion-content color="dark" [fullscreen]="true">
+  <ion-card *ngIf="true" class="player-items ion-padding-top fadeInRight" color="dark">
+    <ion-card-header>
+      <ion-img [src]="player.playingTracks[player.index].imageUrl"></ion-img>
+    </ion-card-header>
+    <ion-card-title class="ion-margin">
+      <ion-item lines="none">
+        <ion-label>{{player.playingTracks[player.index].title}}</ion-label>
+      </ion-item>
+    </ion-card-title>
+    <ion-card-content class="ion-margin-top ion-margin-bottom">
+      <ion-range #range mode="md" (ionChange)="player.changeTime($event)" [value]="(player.sliderValue)" [min]="0"
+                 [max]="player.sliderEnd" color="danger"></ion-range>
+      <ion-item-group class="timers">
+        <ion-item lines="none" class="current">{{player.sliderValue | time | async}}</ion-item>
+        <ion-item lines="none" class="end">{{player.sliderEnd | time | async}}</ion-item>
+      </ion-item-group>
+
+    </ion-card-content>
+    <ion-card-content class="ion-padding ion-margin">
+    </ion-card-content>
+    <ion-item-group class="actions ion-margin-bottom ion-margin-top">
+      <ion-icon [color]="player.shuffle? 'light': 'medium'"
+                (click)="setShuffle()"
+                name="shuffle-outline"></ion-icon>
+      <ion-icon color="light"
+                (click)="previous()"
+                name="play-skip-back-outline"></ion-icon>
+      <ion-icon color="light" (click)="player.isPlay? player.pause() : player.resume()"
+                [name]="player.isPlay? 'pause-outline' : 'play'"></ion-icon>
+      <ion-icon color="light"
+                (click)="next()"
+                name="play-skip-forward-outline"></ion-icon>
+      <ion-icon [color]="player.loop? 'light': 'medium'" (click)="setLoop()"
+                name="repeat-outline"></ion-icon>
+
+    </ion-item-group>
+  </ion-card>
+</ion-content>

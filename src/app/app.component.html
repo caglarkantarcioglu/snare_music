@@ -1,0 +1,6 @@
+<ion-app>
+  <app-preloader *ngIf="loading"></app-preloader>
+  <ion-item style="display: none" id="video-player"></ion-item>
+  <ion-router-outlet></ion-router-outlet>
+  <app-mini-player *ngIf="trackService.miniPlayer"></app-mini-player>
+</ion-app>

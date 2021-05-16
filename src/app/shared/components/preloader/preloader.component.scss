@@ -1,0 +1,84 @@
+:host {
+  display: contents;
+}
+
+ion-content {
+  --background: #111111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999999999;
+  height: 100%;
+
+  ion-img::part(image) {
+    border-radius: 100%;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50%;
+    height: auto;
+    box-shadow: 0 0 20px 0 crimson;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.preloader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 500;
+  background-color: #101010 !important;
+
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 3s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-name: preloader-effect;
+}
+
+.logo {
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-name: logo;
+  transform-style: preserve-3d;
+
+}
+
+@keyframes logo {
+  0% {
+    transform: rotate(0deg);
+  }
+  30%{
+    transform: rotate(180deg);
+  }
+  40% {
+    transform: rotate3d(1, 1, 1, -180deg);
+  }
+  80% {
+    transform: rotate3d(0, 0, 0,  180deg);
+  }
+  100% {
+    transform: rotate(-180deg);
+  }
+}
+
+@keyframes preloader-effect {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    opacity: 0.3;
+    transform: translateX(-100%);
+  }
+}
+
