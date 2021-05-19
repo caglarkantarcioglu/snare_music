@@ -56,9 +56,9 @@ export class PlayerService {
   async play(): Promise<any> {
     const selectedTrack = await this.playingTracks[this.index]
     await this.player.loadVideoById(selectedTrack.id);
-    await clearInterval(this.time)
     await this.playBackground();
-    this.changeTime({detail: {value: 0}})
+    await clearInterval(this.time)
+    await this.changeTime({detail: {value: 0}})
     await this.timer();
     this.isPlay = true;
   }
@@ -149,12 +149,12 @@ export class PlayerService {
           await this.player.playVideo();
         }
         const currentTime = await this.player.getCurrentTime();
-        this.sliderValue = +currentTime.toString().split('.')[0]
+        this.sliderValue += 1 / 100
         if (this.sliderValue >= this.sliderEnd - 0.1 && this.sliderValue !== 0 && this.sliderEnd !== 0) {
           await this.next();
         }
       }
-    }, 100)
+    }, 10)
   }
 
   private async randomIndex(): Promise<number> {
