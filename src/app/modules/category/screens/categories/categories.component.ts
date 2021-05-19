@@ -12,7 +12,7 @@ export class CategoriesComponent {
   subscription: Subscription
 
   slideOpts = {
-    initialSlide: 1,
+    initialSlide: 0,
     speed: 400
   };
 
