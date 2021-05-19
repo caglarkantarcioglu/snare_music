@@ -13,6 +13,12 @@ ion-toolbar{
 
 ion-content {
   --background: #111111;
+  .search-bar {
+    width: 80% !important;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+  }
 
   ion-list {
     ion-item {

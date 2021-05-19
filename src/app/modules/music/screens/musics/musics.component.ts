@@ -20,10 +20,15 @@ export class MusicsComponent {
   items: Music[] = [];
   subscription: Subscription
   isReorder = false;
+  searchKey = '';
 
   @ViewChild('reorder') reorderGroup: any;
 
   constructor(private musicService: MusicService) {
+  }
+
+  async searchHandler() {
+    await this.musicService.search(this.searchKey)
   }
 
   async ionViewWillEnter() {

@@ -19,6 +19,11 @@
   <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
+  <ion-item lines="none" class="search-bar ion-margin-bottom ion-margin-top" color="dark">
+    <ion-input #search id="search" placeholder="Müziklerimde Ara" (ionChange)="searchHandler()" [(ngModel)]="searchKey"></ion-input>
+    <ion-icon name="search"></ion-icon>
+  </ion-item>
+
   <ion-list class="ion-padding-bottom ion-margin-bottom" *ngIf="items !== []" style="background-color: transparent">
     <ion-reorder-group #reorder (ionItemReorder)="$event.detail.complete(this.items)" disabled="true">
       <ion-item lines="none"
