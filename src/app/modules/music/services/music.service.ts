@@ -3,10 +3,13 @@ import {BehaviorSubject} from "rxjs";
 import {StorageService} from "../../../core/storage/storage.service";
 import {TrackService} from "../../../shared/services/track.service";
 import {ToastController} from "@ionic/angular";
+import {DecimalPipe} from "@angular/common";
+
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class MusicService {
   tracks: BehaviorSubject<any[]> = new BehaviorSubject([])
 
@@ -15,6 +18,18 @@ export class MusicService {
 
   async Init() {
     await this.get();
+  }
+
+  async search(searchKey) {
+    if (searchKey === '') {
+      return this.get()
+    }
+    let tracks = await this.tracks.getValue();
+    tracks = await tracks.filter(track => track.title.toLowerCase().includes(searchKey.toLowerCase()))
+    if (tracks.length === 0) {
+      return this.get();
+    }
+    await this.tracks.next(tracks)
   }
 
   async setPlayingItems(tracks, index) {
