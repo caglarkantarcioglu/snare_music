@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {SettingsService} from '../../services/settings.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-categories-settings',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriesSettingsComponent implements OnInit {
 
-  constructor() { }
+  categories: any[] = [];
+  subscription: Subscription;
+
+  constructor(public settingsService: SettingsService) {
+  }
 
   ngOnInit() {}
 

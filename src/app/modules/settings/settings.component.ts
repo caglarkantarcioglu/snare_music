@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SettingsService} from './services/settings.service';
 
 @Component({
   selector: 'app-settings',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private settingsService: SettingsService) { }
 
   ngOnInit() {}
 
+  async ionViewWillEnter() {
+  await this.settingsService.getCategories();
+  }
 }
