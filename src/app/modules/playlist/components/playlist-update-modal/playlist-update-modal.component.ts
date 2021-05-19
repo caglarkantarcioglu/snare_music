@@ -24,7 +24,8 @@ export class PlaylistUpdateModalComponent {
     await this.closeModal();
   }
 
-  closeModal() {
+  async closeModal() {
+    await this.playlistService.select(this.playlist.id);
     this.playlistService.closeUpdateModal();
   }
 
