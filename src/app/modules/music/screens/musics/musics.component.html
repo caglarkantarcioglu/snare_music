@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="danger">
-    <ion-buttons (click)="isReorder? completeReorder() : reorderHandler()" slot="start">
+    <ion-buttons *ngIf="searchKey === ''" (click)="isReorder? completeReorder() : reorderHandler()" slot="start">
       <ion-icon [name]="isReorder? 'checkmark-outline':'filter-outline'"></ion-icon>
     </ion-buttons>
     <ion-title>
@@ -20,7 +20,8 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <ion-item lines="none" class="search-bar ion-margin-bottom ion-margin-top" color="dark">
-    <ion-input #search id="search" placeholder="Müziklerimde Ara" (ionChange)="searchHandler()" [(ngModel)]="searchKey"></ion-input>
+    <ion-input #search id="search" placeholder="Müziklerimde Ara" (ionChange)="searchHandler()"
+               [(ngModel)]="searchKey"></ion-input>
     <ion-icon name="search"></ion-icon>
   </ion-item>
 
@@ -34,9 +35,9 @@
               <ion-img [src]="item.imageUrl"></ion-img>
             </ion-thumbnail>
             <ion-label>{{item.title}}</ion-label>
-            <ion-reorder slot="end" *ngIf="!reorder.disabled" style="color: white"></ion-reorder>
+            <ion-reorder slot="end" *ngIf="!reorder.disabled && searchKey === ''" style="color: white"></ion-reorder>
             <ion-icon (click)="deleteMusic(item.id)" style="font-size: x-large !important;" slot="end"
-                      *ngIf="!reorder.disabled" name="close-circle" color="light"></ion-icon>
+                      *ngIf="!reorder.disabled && searchKey === ''" name="close-circle" color="light"></ion-icon>
             <ion-icon class="ion-margin-start" *ngIf="reorder.disabled" (click)="play(i)" color="danger"
                       name="play-circle-outline"></ion-icon>
           </ion-item>
