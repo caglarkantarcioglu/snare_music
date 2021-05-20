@@ -3,19 +3,26 @@
 }
 
 ion-checkbox {
-  --size: 40px;
+  width: 30%;
+  height: auto;
   margin-right: auto;
 }
-ion-img{
-  width: 50%;
-  margin-left: auto;
+ion-img::part(image){
+  background-color: #222222;
+  width: 70%;
+  border-radius: 5%;
+  padding-top: 5%;
+  padding-bottom: 5%;
   margin-right: auto;
   height: auto;
 }
 ion-item{
-  margin-top: 10%;
+  --background: transparentize();
+  margin-top: 10%
 }
 ion-card{
+  box-shadow: none !important;
+  --background: transparentize();
   width: 90%;
   height: auto;
   margin-left: auto;
