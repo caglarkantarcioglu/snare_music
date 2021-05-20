@@ -1,7 +1,7 @@
 <ion-header collapse="hidden">
   <ion-toolbar color="danger">
     <ion-item lines="none" class="search-bar" color="danger">
-      <ion-input #search id="search" [(ngModel)]="searchKey" placeholder="YouTube'da Ara"></ion-input>
+      <ion-input #search id="search" (keypress)="enterHandler($event)" [(ngModel)]="searchKey" placeholder="YouTube'da Ara"></ion-input>
       <ion-icon (click)="listSearchResult()" name="search"></ion-icon>
     </ion-item>
   </ion-toolbar>
