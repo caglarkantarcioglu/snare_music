@@ -4,7 +4,7 @@
     <ion-icon color="light" (click)="location.back()" icon="chevron-back-outline"></ion-icon>
   </ion-item>
 </ion-toolbar>
-<ion-content id="player" [fullscreen]="true">
+<ion-content *ngIf="player.sliderEnd > 0.01" id="player" [fullscreen]="true">
   <ion-card *ngIf="true" class="player-items ion-padding-top fadeInRight">
     <ion-card-header>
       <ion-img [src]="player.playingTracks[player.index].imageUrl"></ion-img>
