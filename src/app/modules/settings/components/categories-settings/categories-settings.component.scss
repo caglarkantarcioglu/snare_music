@@ -7,6 +7,8 @@ ion-item{
 }
 
 ion-card{
+  box-shadow: none !important;
+  --background: transparentize();
   width: 90%;
   height: auto;
   margin-left: auto;
