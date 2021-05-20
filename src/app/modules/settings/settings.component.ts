@@ -13,6 +13,6 @@ export class SettingsComponent implements OnInit {
   ngOnInit() {}
 
   async ionViewWillEnter() {
-  await this.settingsService.getCategories();
+    await this.settingsService.Init();
   }
 }
