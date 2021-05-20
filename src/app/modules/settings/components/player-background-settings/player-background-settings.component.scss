@@ -1,24 +1,37 @@
-:host{
+:host {
   display: contents;
 }
 
-ion-checkbox {
-  --size: 40px;
-  margin-right: auto;
+ion-item {
+  --background: transparentize();
 }
-ion-img{
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  height: auto;
-}
-ion-item{
-  margin-top: 10%;
-}
-ion-card{
+
+ion-card {
   width: 90%;
   height: auto;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+
+  ion-list {
+    background-color: transparent;
+
+    ion-item {
+      margin-top: 15%;
+
+      ion-img {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        height: auto;
+      }
+
+      ion-checkbox {
+        --size: 40px;
+        margin-right: auto;
+      }
+    }
+  }
 }
+
+
