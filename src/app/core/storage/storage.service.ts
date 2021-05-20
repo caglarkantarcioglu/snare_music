@@ -54,8 +54,8 @@ export class StorageService {
           enable: true
         },
         {
-          id: "RDCLAK5uy_k31GPZp_nSsHeJEniR4MqtqFBRJatI-JI",
-          name: "New Turkish Pop",
+          id: "RDCLAK5uy_n7OdwqgA4C6ewA6dD-YAXJEqUC0lPHqUA",
+          name: "The Hit List",
           enable: true
         },
         {
@@ -109,16 +109,9 @@ export class StorageService {
   }
 
   /* Categories */
-
-  async CategoryEnable(index) {
+  async ChangeCategoryEnable(index, value) {
     const categories = await this.$categories();
-    categories[index].enable = true
-    await this.UpdateCategories(categories);
-  }
-
-  async CategoryDisable(index) {
-    const categories = await this.$categories();
-    categories[index].enable = false
+    categories[index].enable = value
     await this.UpdateCategories(categories);
   }
 

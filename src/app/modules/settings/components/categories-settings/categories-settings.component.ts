@@ -9,9 +9,6 @@ import {Subscription} from 'rxjs';
 })
 export class CategoriesSettingsComponent implements OnInit {
 
-  categories: any[] = [];
-  subscription: Subscription;
-
   constructor(public settingsService: SettingsService) {
   }
 
