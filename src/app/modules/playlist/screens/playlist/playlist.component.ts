@@ -13,15 +13,18 @@ import {PlaylistUpdateModalComponent} from "../../components/playlist-update-mod
 })
 export class PlaylistComponent {
   playlist: Playlist;
+  isLoad = false;
   subscription: Subscription;
 
   constructor(private playlistService: PlaylistService, private router: Router) {
   }
 
   async ionViewWillEnter() {
-    this.subscription = this.playlistService.selectedPlaylist.subscribe(data => {
+    this.subscription = await this.playlistService.selectedPlaylist.subscribe(data => {
       this.playlist = data
+      $('#playlist-image').css('backgroundImage', "url('" + data.songs[0].imageUrl + "')")
     })
+    this.isLoad = true;
   }
 
   async ionViewDidLeave() {
