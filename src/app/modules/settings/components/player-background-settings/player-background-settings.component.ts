@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SettingsService} from "../../services/settings.service";
 
 @Component({
   selector: 'app-player-background-settings',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayerBackgroundSettingsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public settingService: SettingsService) { }
 
   ngOnInit() {}
 
