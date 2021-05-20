@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
-import {INIT_MUSICS, INIT_PLAYLISTS} from "./init.data";
-import {Observable} from "rxjs";
+import {initBackgrounds, initCategories} from "./init.data";
 import {SQLite, SQLiteObject} from "@ionic-native/sqlite/ngx";
 import {Platform} from "@ionic/angular";
 import {Music} from "../../shared/interfaces/music";
@@ -39,6 +38,10 @@ export class StorageService {
     return await this.$playlists().then(data => data.find(p => p.id === id))
   }
 
+  async $backgrounds(): Promise<any[]> {
+    return await JSON.parse(localStorage.getItem('Backgrounds'))
+  }
+
   async DatabaseInitialize() {
     if (!localStorage.getItem('Musics')) {
       localStorage.setItem('Musics', JSON.stringify([]))
@@ -47,42 +50,13 @@ export class StorageService {
       localStorage.setItem('Playlists', JSON.stringify([]))
     }
     if (!localStorage.getItem('Categories')) {
-      const baseCategories = [
-        {
-          id: "RDCLAK5uy_l8kJfTElp2zFMop7IboOXetbbKU3a9VeQ",
-          name: "Turkish Rap Hotlist",
-          enable: true
-        },
-        {
-          id: "RDCLAK5uy_n7OdwqgA4C6ewA6dD-YAXJEqUC0lPHqUA",
-          name: "The Hit List",
-          enable: true
-        },
-        {
-          id: "RDCLAK5uy_kH6Y9fB6BTPzXdPX27zK79_t42tT_ya8c",
-          name: "Turkish Rock Hotlist",
-          enable: true
-        },
-        {
-          id: "RDCLAK5uy_l63FFr2xGnXGVPfOWTNtAirWzsmZW_fBU",
-          name: "Turkish Trap Party ",
-          enable: true
-        },
-        {
-          id: "RDCLAK5uy_miLVOuCHnbtfW7swwNA8o-LjeiaDXy3x8",
-          name: "Turkish Rap Pioneers ",
-          enable: true
-        },
-        {
-          id: "RDCLAK5uy_k31GPZp_nSsHeJEniR4MqtqFBRJatI-JI",
-          name: "New Turkish Pop",
-          enable: true
-        }
-      ]
-      await localStorage.setItem('Categories', JSON.stringify(baseCategories))
+      await localStorage.setItem('Categories', JSON.stringify(initCategories))
     }
     if (!localStorage.getItem('MiniPlayerType')) {
       await localStorage.setItem('MiniPlayerType', 'side')
+    }
+    if (!localStorage.getItem('Backgrounds')) {
+      await localStorage.setItem('Backgrounds', JSON.stringify(initBackgrounds))
     }
   }
 
@@ -176,5 +150,18 @@ export class StorageService {
   async ChangeMiniPlayerType(type: 'bottom' | 'side') {
     await localStorage.setItem('MiniPlayerType', type)
   }
+
+  /* Player Background */
+  async ChangeBackground(id) {
+    const backgrounds = await this.$backgrounds();
+    await backgrounds.forEach(b => {
+      b.enable = false;
+      if (b.id === id) {
+        b.enable = true
+      }
+    })
+    await localStorage.setItem('Backgrounds',JSON.stringify(backgrounds))
+  }
+
 
 }
