@@ -168,13 +168,11 @@ export class PlayerService {
 
     if (this.isBackground) {
       await this.backgroundSubscription.unsubscribe();
-      await this.destroyBackground();
     }
 
     const song = await this.playingTracks[this.index]
     await this.musicControl.create({
       track: song.title,
-      artist: '',
       cover: song.imageUrl,
       isPlaying: true,
       dismissable: true,
@@ -198,6 +196,7 @@ export class PlayerService {
 
   private async destroyBackground() {
     await this.musicControl.destroy();
+    await this.pause();
   }
 
   private async backgroundListener() {
@@ -217,7 +216,7 @@ export class PlayerService {
         this.next();
       }
       if (message === 'music-controls-destroy') {
-        this.pause();
+        this.destroyBackground();
       }
     })
     await this.musicControl.listen(); // activates the observable above
