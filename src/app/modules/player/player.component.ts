@@ -17,7 +17,9 @@ export class PlayerComponent {
     private trackService: TrackService,
   ) {
   }
+
   async ionViewWillEnter() {
+    await this.setBackgroundImage();
     await this.player.InitOnPlay();
     this.trackService.miniPlayer = false;
   }
@@ -26,6 +28,12 @@ export class PlayerComponent {
     setTimeout(() => {
       this.trackService.miniPlayer = true;
     }, 500)
+  }
+
+  async setBackgroundImage() {
+    const images: any[] = await JSON.parse(localStorage.getItem('Backgrounds'))
+    const image = await images.find(i => i.enable === true);
+    await $('#bg').css("backgroundImage", "url('" + image.url + "')")
   }
 
   setLoop() {
