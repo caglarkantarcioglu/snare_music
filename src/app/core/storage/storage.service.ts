@@ -27,6 +27,10 @@ export class StorageService {
     return await JSON.parse(localStorage.getItem('Musics'))
   }
 
+  async $categories(): Promise<any[]> {
+    return await JSON.parse(localStorage.getItem('Categories'))
+  }
+
   async $playlists(): Promise<Playlist[]> {
     return await JSON.parse(localStorage.getItem('Playlists'))
   }
@@ -41,6 +45,41 @@ export class StorageService {
     }
     if (!localStorage.getItem('Playlists')) {
       localStorage.setItem('Playlists', JSON.stringify([]))
+    }
+    if (!localStorage.getItem('Categories')) {
+      const baseCategories = [
+        {
+          id: "RDCLAK5uy_l8kJfTElp2zFMop7IboOXetbbKU3a9VeQ",
+          name: "Turkish Rap Hotlist",
+          enable: true
+        },
+        {
+          id: "RDCLAK5uy_k31GPZp_nSsHeJEniR4MqtqFBRJatI-JI",
+          name: "New Turkish Pop",
+          enable: true
+        },
+        {
+          id: "RDCLAK5uy_kH6Y9fB6BTPzXdPX27zK79_t42tT_ya8c",
+          name: "Turkish Rock Hotlist",
+          enable: true
+        },
+        {
+          id: "RDCLAK5uy_l63FFr2xGnXGVPfOWTNtAirWzsmZW_fBU",
+          name: "Turkish Trap Party ",
+          enable: true
+        },
+        {
+          id: "RDCLAK5uy_miLVOuCHnbtfW7swwNA8o-LjeiaDXy3x8",
+          name: "Turkish Rap Pioneers ",
+          enable: true
+        },
+        {
+          id: "RDCLAK5uy_k31GPZp_nSsHeJEniR4MqtqFBRJatI-JI",
+          name: "New Turkish Pop",
+          enable: true
+        }
+      ]
+      await localStorage.setItem('Categories', JSON.stringify(baseCategories))
     }
   }
 
@@ -67,6 +106,24 @@ export class StorageService {
 
   async ReorderingMusics(items) {
     await localStorage.setItem('Musics', JSON.stringify(items))
+  }
+
+  /* Categories */
+
+  async CategoryEnable(index) {
+    const categories = await this.$categories();
+    categories[index].enable = true
+    await this.UpdateCategories(categories);
+  }
+
+  async CategoryDisable(index) {
+    const categories = await this.$categories();
+    categories[index].enable = false
+    await this.UpdateCategories(categories);
+  }
+
+  async UpdateCategories(items) {
+    await localStorage.setItem('Categories', JSON.stringify(items))
   }
 
 
