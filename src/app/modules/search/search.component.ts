@@ -52,4 +52,10 @@ export class SearchComponent {
     await this.searchService.getSearchResults(this.searchKey)
   }
 
+  async enterHandler(event) {
+    if (event.key === 'Enter') {
+      await this.listSearchResult();
+    }
+  }
+
 }
