@@ -29,4 +29,10 @@ export class SettingsService {
     await this.getCategories();
   }
 
+  async changeMiniPlayerType(type, event: any) {
+    if (event.detail.checked === true) {
+      await this.storage.ChangeMiniPlayerType(type)
+    }
+  }
+
 }

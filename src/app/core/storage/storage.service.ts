@@ -81,6 +81,9 @@ export class StorageService {
       ]
       await localStorage.setItem('Categories', JSON.stringify(baseCategories))
     }
+    if (!localStorage.getItem('MiniPlayerType')) {
+      await localStorage.setItem('MiniPlayerType', 'side')
+    }
   }
 
   /* Musics */
@@ -167,6 +170,11 @@ export class StorageService {
     })
     playlists[index] = playlist
     await localStorage.setItem('Playlists', JSON.stringify(playlists))
+  }
+
+  /* Mini Player */
+  async ChangeMiniPlayerType(type: 'bottom' | 'side') {
+    await localStorage.setItem('MiniPlayerType', type)
   }
 
 }
