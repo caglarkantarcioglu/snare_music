@@ -9,6 +9,8 @@ import {TrackService} from "../../services/track.service";
 })
 export class MiniPlayerComponent{
 
+  miniPlayerType = localStorage.getItem('MiniPlayerType')
+
   constructor(public player: PlayerService, public trackService: TrackService) {
   }
 
