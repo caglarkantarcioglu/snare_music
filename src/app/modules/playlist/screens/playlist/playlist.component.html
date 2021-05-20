@@ -1,4 +1,4 @@
-<ion-toolbar color="dark" *ngIf="playlist">
+<ion-toolbar color="dark" *ngIf="isLoad">
   <ion-icon routerLink="/playlist" slot="start" name="chevron-back-outline"></ion-icon>
   <ion-title>
     {{playlist.name}}
@@ -7,10 +7,10 @@
 </ion-toolbar>
 
 <ion-content>
-  <ion-item-group class="playlist-banner" *ngIf="playlist">
-    <ion-img [src]="playlist.songs[0].imageUrl"></ion-img>
+  <ion-item-group class="playlist-banner" *ngIf="isLoad">
+    <div id="playlist-image"></div>
   </ion-item-group>
-  <ion-list *ngIf="playlist" class="ion-padding-bottom ion-margin-bottom ion-padding-top">
+  <ion-list *ngIf="isLoad" class="ion-padding-bottom ion-margin-bottom ion-padding-top">
     <ion-item lines="none"
               *ngFor="let item of playlist.songs; index as i">
       <ion-card *ngIf="item.id" color="dark">
@@ -25,4 +25,5 @@
       </ion-card>
     </ion-item>
   </ion-list>
+  <ion-item color="none" class="ion-margin-bottom"></ion-item>
 </ion-content>
