@@ -25,14 +25,16 @@ ion-card {
         background-color: #222222;
         padding: 5%;
         border-radius: 5%;
-        width: 70%;
+        width: 75%;
         margin-right: auto;
         height: auto;
       }
 
-      ion-checkbox {
-        --size: 40px;
-        margin-right: auto;
+      ion-toggle {
+        width: 60% !important;
+        --size: 100%;
+        background-color: crimson;
+        border-radius: 30px;
       }
     }
   }

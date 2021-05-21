@@ -2,18 +2,19 @@
   display: contents;
 }
 
-ion-checkbox {
-  width: 30%;
-  height: auto;
-  margin-right: auto;
+ion-toggle {
+  background-color: crimson;
+  margin-left: auto;
+  width: 60% !important;
+  border-radius: 30px;
+  --size: 100%;
 }
 ion-img::part(image){
   background-color: #222222;
-  width: 70%;
+  width: 75%;
   border-radius: 5%;
   padding-top: 5%;
   padding-bottom: 5%;
-  margin-right: auto;
   height: auto;
 }
 ion-item{

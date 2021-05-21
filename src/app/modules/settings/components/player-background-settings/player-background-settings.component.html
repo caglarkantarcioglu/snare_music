@@ -1,10 +1,9 @@
 <ion-card class="ion-padding ion-margin-top ion-margin-bottom">
   <ion-card-title color="light" class="ion-margin-top ion-margin-bottom">Müzik Çalar Arka Fon Ayarı</ion-card-title>
   <ion-list class="ion-margin-bottom ion-padding-bottom">
-    <ion-item class="ion-margin-bottom" lines="none" *ngFor="let item of settingService.backgrounds.getValue()">
+    <ion-item class="ion-margin-bottom" lines="none" *ngFor="let item of settingService.backgrounds">
       <ion-img [src]="item.url"></ion-img>
-      <ion-checkbox slot="end" (ionChange)="settingService.updateBackground(item.id)" [checked]="item.enable" mode="ios"
-                    color="danger"></ion-checkbox>
+      <ion-toggle [disabled]="item.enable" (ionChange)="settingService.updateBackground(item.id)" [checked]="item.enable" color="success" mode="ios" ></ion-toggle>
     </ion-item>
   </ion-list>
 </ion-card>
