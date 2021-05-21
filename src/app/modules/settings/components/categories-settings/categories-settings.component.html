@@ -1,7 +1,7 @@
-<ion-card class="ion-padding ion-margin-top ion-margin-bottom">
+<ion-card *ngIf="settingsService.categories !== []" class="ion-padding ion-margin-top ion-margin-bottom">
   <ion-card-title color="light" class="ion-margin-top ion-margin-bottom">Keşfet Kategori Ayarı</ion-card-title>
   <ion-list>
-  <ion-item lines="none" color="dark" *ngFor="let item of settingsService.categories.getValue();index as i">
+  <ion-item lines="none" color="dark" *ngFor="let item of settingsService.categories;index as i">
     <ion-label>{{item.name}}</ion-label>
     <ion-toggle (ionChange)="settingsService.updateCategory(i, $event)" [checked]="item.enable" color="success" mode="ios" ></ion-toggle>
   </ion-item>

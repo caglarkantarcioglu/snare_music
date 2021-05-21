@@ -2,10 +2,12 @@
   <ion-card-title color="light" class="ion-margin-top ion-margin-bottom">Mini Oynatıcı Ayarı</ion-card-title>
   <ion-item lines="none">
     <ion-img  src="assets/images/mini-player-option-1.png"></ion-img>
-    <ion-checkbox (ionChange)="change('side', $event)" [checked]="miniPlayerType === 'side'? true : false" mode="ios" color="danger"></ion-checkbox>
+
+    <ion-toggle [disabled]="miniPlayerType === 'side'" (ionChange)="change('side', $event)" [checked]="miniPlayerType === 'side'? true : false" color="success" mode="ios" ></ion-toggle>
   </ion-item>
   <ion-item lines="none">
     <ion-img  src="assets/images/mini-player-option-2.png"></ion-img>
-    <ion-checkbox (ionChange)="change('bottom', $event)" [checked]="miniPlayerType === 'bottom'? true : false" mode="ios" color="danger"></ion-checkbox>
+
+    <ion-toggle [disabled]="miniPlayerType === 'bottom'" (ionChange)="change('bottom', $event)" [checked]="miniPlayerType === 'bottom'? true : false" color="success" mode="ios" ></ion-toggle>
   </ion-item>
 </ion-card>

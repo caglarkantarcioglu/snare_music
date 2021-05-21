@@ -10,8 +10,8 @@ import {StorageService} from "../../../core/storage/storage.service";
 })
 export class SettingsService {
 
-  categories: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
-  backgrounds: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([])
+  categories = []
+  backgrounds = []
 
   constructor(private storage: StorageService) {
   }
@@ -23,12 +23,12 @@ export class SettingsService {
 
   async getCategories() {
     const _categories = await this.storage.$categories();
-    await this.categories.next(_categories)
+    this.categories = _categories
   }
 
   async getBackgrounds() {
     const _backgrounds = await this.storage.$backgrounds();
-    await this.backgrounds.next(_backgrounds)
+    this.backgrounds = _backgrounds
   }
 
   async updateCategory(index, event: any) {
@@ -37,8 +37,11 @@ export class SettingsService {
   }
 
   async updateBackground(id) {
-    await this.storage.ChangeBackground(id);
-    await this.getBackgrounds();
+    this.backgrounds = []
+    await this.storage.ChangeBackground(id)
+    setTimeout(() => {
+      this.getBackgrounds();
+    },500)
   }
 
   async changeMiniPlayerType(type, event: any) {

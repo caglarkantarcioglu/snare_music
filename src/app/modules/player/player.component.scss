@@ -36,6 +36,11 @@ ion-content {
     text-align: center;
     padding: 10px;
     box-shadow: none;
+    ion-range{
+      --bar-height: 5px;
+      --knob-size: 30px;
+      --bar-border-radius: 20px;
+    }
 
     ion-card-header {
       ion-img {

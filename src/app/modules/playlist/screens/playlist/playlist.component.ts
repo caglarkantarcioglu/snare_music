@@ -22,9 +22,8 @@ export class PlaylistComponent {
   async ionViewWillEnter() {
     this.subscription = await this.playlistService.selectedPlaylist.subscribe(data => {
       this.playlist = data
-      $('#playlist-image').css('backgroundImage', "url('" + data.songs[0].imageUrl + "')")
+      this.isLoad = true
     })
-    this.isLoad = true;
   }
 
   async ionViewDidLeave() {

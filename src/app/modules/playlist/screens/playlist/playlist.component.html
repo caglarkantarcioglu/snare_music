@@ -1,14 +1,14 @@
-<ion-toolbar color="dark" *ngIf="isLoad">
+<ion-toolbar color="dark">
   <ion-icon routerLink="/playlist" slot="start" name="chevron-back-outline"></ion-icon>
-  <ion-title>
+  <ion-title *ngIf="isLoad">
     {{playlist.name}}
   </ion-title>
   <ion-icon name="filter-circle" (click)="openUpdateModal()" class="update-icon" slot="end"></ion-icon>
 </ion-toolbar>
 
 <ion-content>
-  <ion-item-group class="playlist-banner" *ngIf="isLoad">
-    <div id="playlist-image"></div>
+  <ion-item-group class="playlist-banner">
+    <div *ngIf="isLoad" [ngStyle]="{'background-image': 'url(' + playlist.songs[0].imageUrl + ')'}" id="playlist-image"></div>
   </ion-item-group>
   <ion-list *ngIf="isLoad" class="ion-padding-bottom ion-margin-bottom ion-padding-top">
     <ion-item lines="none"
