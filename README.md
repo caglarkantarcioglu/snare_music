@@ -2,7 +2,9 @@
 
 #### Open Source Code Ionic Angular Music Application
 
-## Features:
+<br/>
+
+#### Features:
     
       - Search musics with Youtube API V3
       - Play background
