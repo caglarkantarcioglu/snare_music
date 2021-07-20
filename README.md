@@ -20,7 +20,7 @@
     <img src="https://avatars.githubusercontent.com/u/73912945?s=64&v=4" align="center" />
     <a href="https://github.com/CaglarKantarcioglu">Çağlar Kantarcıoğlu</a>
   </div>
-   <div style="display: block; text-aling: center"> 
+   <div style="margin-top: 20px"> 
     <img src="https://avatars.githubusercontent.com/u/73971801?s=64&v=4" align="center" />
     <a href="https://github.com/KubilayTekin27">Kubilay Tekin</a>
   </div>
