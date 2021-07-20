@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_KEY: 'AIzaSyCQmy0LdOqZ_K7HwjsotVSAd9rXsHVqHOE'
+  API_KEY: 'ENTER-API-KEY'
 };
 
 /*
