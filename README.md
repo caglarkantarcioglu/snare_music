@@ -15,5 +15,11 @@
 <br />
 
 ##### Developers:
-<div>asdasdsad </div>
-<img src="https://avatars.githubusercontent.com/u/73912945?s=64&v=4" align="left" />
+<div style="display: flex; justify-content-center; align-items-center">
+  <div style="display: block; text-aling: center"> 
+    <img src="https://avatars.githubusercontent.com/u/73912945?s=64&v=4" align="left" />
+    <a href="https://github.com/CaglarKantarcioglu">Çağlar Kantarcıoğlu</a>
+  </div>
+  
+</div>
+
