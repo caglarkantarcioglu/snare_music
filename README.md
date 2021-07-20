@@ -1,6 +1,6 @@
 # *Snare Music*
 
-## Ionic Angular Music Application
+## Open Source Code Ionic Angular Music Application
 
 ## Features:
     
