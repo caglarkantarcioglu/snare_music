@@ -16,7 +16,7 @@
 
 #### Developers:
   <div> 
-    <img style="border-radius: 100%" src="https://avatars.githubusercontent.com/u/73912945?s=64&v=4" align="center" />
+    <img style="border-radius: 30px !important;" src="https://avatars.githubusercontent.com/u/73912945?s=64&v=4" align="center" />
     <a href="https://github.com/CaglarKantarcioglu">Çağlar Kantarcıoğlu</a>
   </div>
   <br />
