@@ -15,13 +15,13 @@
 <br />
 
 ##### Developers:
-<div style="display: flex; justify-content-center; align-items-center">
+<div style="display: flex; justify-content-center; align-items-center; width: 100%">
   <div style="display: block; text-aling: center"> 
-    <img src="https://avatars.githubusercontent.com/u/73912945?s=64&v=4" />
+    <img src="https://avatars.githubusercontent.com/u/73912945?s=64&v=4" align="center" />
     <a href="https://github.com/CaglarKantarcioglu">Çağlar Kantarcıoğlu</a>
   </div>
    <div style="display: block; text-aling: center"> 
-    <img src="https://avatars.githubusercontent.com/u/73971801?s=64&v=4" />
+    <img src="https://avatars.githubusercontent.com/u/73971801?s=64&v=4" align="center" />
     <a href="https://github.com/KubilayTekin27">Kubilay Tekin</a>
   </div>
   
