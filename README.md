@@ -1,4 +1,4 @@
-<h3>*Snare Music*</h3>
+<h1>*Snare Music*</h1>
 
 <h2> Open Source Code Ionic Angular Music Application </h2>
 
